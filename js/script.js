@@ -1,21 +1,13 @@
-<<<<<<< HEAD
 // // alert("olá mundo!");
 // // var nome = prompt("Olá digite seu nome");
 
 // // alert("Meu nome é " + nome);
 // // console.log("Meu nome é " + nome);
-=======
-
-//Capturando o botão de entrar
-const botaoEntrar = document.getElementById("btnEntrar");
-console.log(botaoEntrar);
->>>>>>> main
 
 // // HOISTING
 // // var nome = "Alê";
 // // let sobreNome = "Carlos";
 
-<<<<<<< HEAD
 // // if(true){
 
 // //     var nome = "Joaquim";
@@ -67,23 +59,3 @@ botaoEntrar.addEventListener("click", function(){
 //Capturar os campos de email e senha.
 //Armazenar em variáveis.
 //Imprimir seus valores.
-=======
-
-//Atrelando ao botão uma função que vai receber dois parâmetros.
-// O primeiro será o evento de tela, o segundo será a função de callBack ou função anônima.
-
-
-botaoEntrar.addEventListener("click", function(){
-    console.log("Botão de entrar clicado");
-
-
-    //Para casa:
-    //Capturar os campos de email e senha.
-    //Armazenar em variáveis.
-    //Imprimir seus valores.
-
-
-
-
-});
->>>>>>> main
