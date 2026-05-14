@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .conteudo__container {
   display: grid;
   margin: 1rem;
@@ -28,7 +28,7 @@
 .conteudo__tit{
     text-align: center;
     font-size: 2rem;
-=======
+}
 .conteudo__container{
     padding: 2% 5%;
     display: grid;
@@ -92,5 +92,4 @@
     .conteudo__container{
         grid-template-columns: 1fr;
     }
->>>>>>> origin/rm572956
 }
