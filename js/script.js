@@ -53,8 +53,30 @@ botaoEntrar.addEventListener("click", function(e){
                     modalDialog.close();
                 });
 
-                //Redirecionamento do usuário para uma nova página!!
-                //window.location.href = "../index.html";
+                //Adicionar a mensagem de suscesso para o usario no modal
+                //Vamos usar o innerHTML para injetar 2 <p> com o texto na div msg
+                // Mas para isso necessitamos capturar a div msg antes
+                const divMsg = document.querySelector("#msg");
+
+                let contador = 5;
+                //Injetando os 2 <p> com a mensafem de sucesso.
+                divMsg.innerHTML = `<p>Login realizado com Sucesso! VocÊ será redirecionado em ${contador}segundos...</p>"`;
+
+                //Temporizador de redirecioan mento com setInterval
+                const intervalo = setInterval(function() {
+
+                    divMsg.innerHTML = `<p>Login realizado com Sucesso! VocÊ será redirecionado em ${contador}segundos...</p>"`;
+                    contador --;
+
+                    if (contador === 0) {
+                        clearInterval(intervalo);
+                        //Redirecionamento do usuário para uma nova página!!
+                        window.location.href = "../index.html";
+                    }
+                     
+                }, 1000);
+
+                
             }else{
                 throw Error("Email ou Senha incorretos.");
             }
