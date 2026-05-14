@@ -91,3 +91,7 @@ botaoEntrar.addEventListener("click", function(e){
     }
 
 });
+
+
+//Pra casa
+//Reutilzxar o MODAL para as mensagens de erro!!!
