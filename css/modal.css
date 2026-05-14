@@ -30,3 +30,12 @@
     color: #42af4b;
     font-weight: 700;
 }
+
+#msg{
+    margin-top: 15%;
+}
+
+#msg p{
+    font-size: 4rem;
+    font-weight: 500;
+}
