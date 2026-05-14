@@ -1,41 +1,57 @@
 
-//capturando botao
-const botaoEntrar = document.getElementById("btnEntrar");
+//objeto INTERNO
+const usuarioDb = {
+    email: "email@email.com",
+    senha: "12345",
+    nome: "Jose Antonio",
+    avatar: "https://placehold.co/100x100/eceaea/969696.png?text=usuario&font=lato"
+}
 
+
+//Capturando o botão de entrar
+const botaoEntrar = document.getElementById("btnEntrar");
 console.log(botaoEntrar);
 
-//atrelando ao botao uma funcao que vai receber dois parametros
-//o primeiro sera o evento de tela, o segundo sera a funcao de callBack ou funcao anonima
- botaoEntrar.addEventListener("click", function(){
+//Atrelando ao botão uma função que vai receber dois parâmetros.
+// O primeiro será o evento de tela, o segundo será a função de callBack ou função anônima.
 
-      //     //Para casa:
-//     //Capturar os campos de email e senha.
-//     //Armazenar em variáveis.
-//     //Imprimir seus valores.
+botaoEntrar.addEventListener("click", function(e){
+    
+    e.preventDefault()
 
-    const email = document.getElementById("idEmail");
-    const senha = document.getElementById("idSenha");
 
-    //Armazenando os dados em um Objeto:
-    //Declarando um Objeto
-    const usuario = {
-        email : email.value,
-        senha : senha.value
+    //Para casa:
+    //Capturar os campos de email e senha.
+    //Armazenar em variáveis.
+    //Imprimir seus valores.
+    const email = document.querySelector("#idEmail");
+    const senha = document.querySelector("#idSenha");
+    console.log(email.value);
+    console.log(senha.value); 
+
+    //armazenar os dados que chegam do form em um objeto:
+    const userForm = {
+        email: email.value,
+        senha: senha.value
     }
-    
-    //Imprimindo os dados dos campos:
 
-    //Concatenação padrão:
-    console.log("Email : " + email.value + " e senha: " + senha.value);
-    
-    //Impressão dos dados com Template Literal e interpolação:
-    console.log(`Email :  ${email.value}  e senha: ${senha.value}.`);
+    //validacao
+    try {
+        if (usuarioDb) {
+            
+            if((usuarioDb.email === userForm.email) && (usuarioDb.senha === userForm.senha)){
+                alert("Login realizado com sucesso");
+                //redirecionamento do usuario para uma nova pagina!!
+                window.location.href = "../index.html"
+             }else{
+                throw Error("Email ou Senha incorretos.");
+             }
+        }else{
+            throw Error("Ocorreu um erro no acesso as informacoes do usuario.")
+        }
+    } catch (error) {
+        console.error(error);
+        alert(error);
+    }
 
-
-    //Para casa
-    //realizar os exercicio da apostila ate a pagina 64.
-    //Apresente os dados armazenados no Objeto usuario utilizando Template Literal:
-
-
-  });
-
+});
