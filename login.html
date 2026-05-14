@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+
     <link rel="stylesheet" href="./css/main.css" />
+
     <script src="./js/script.js" defer></script>
- 
+
     <title>ESPORTE TOTAL - LOGIN</title>
   </head>
   <body>
     <header class="cabecalho">
       <a class="cabecalho__logo" href="./index.html">ESPORTE TOTAL</a>
- 
+
       <nav class="cabecalho__nav">
         <ul class="cabecalho__ul">
           <li class="cabecalho__li cabecalho__li-active">
@@ -23,12 +24,18 @@
         </ul>
       </nav>
     </header>
- 
     <main class="conteudo">
       <section class="hero">
         <div class="hero__container">
           <h1 class="hero__title">CONTROLE DE ACESSO</h1>
- 
+
+          <dialog id="meuModal">
+            <button aria-label="Fechar janela" id="btnFechar"></button>
+            <div id="msg">
+              TESTE   
+            </div>
+          </dialog>
+
           <form action="#" method="GET">
             <fieldset>
               <legend>LOGIN</legend>
@@ -42,10 +49,10 @@
                   minlength="13"
                   maxlength="150"
                   required
-                />
-              </div>
+                /> 
+              </div> 
               <div>
-                <label for="idSenha" id="inpSenha">Senha</label>
+                <label for="idSenha">Senha</label>
                 <input
                   type="password"
                   name="senha"
@@ -61,7 +68,7 @@
               </div>
             </fieldset>
           </form>
- 
+
           <span>Não tem conta?</span
           ><a
             aria-label="Para criar sua conta"
@@ -72,11 +79,9 @@
         </div>
       </section>
     </main>
- 
+
     <footer class="footer">
       <p>&copy; Todos os direitos reservados - ESPORTE TOTAL - 2026</p>
     </footer>
   </body>
 </html>
- 
- 

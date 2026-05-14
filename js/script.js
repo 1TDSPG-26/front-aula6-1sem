@@ -1,6 +1,6 @@
 
 //Objeto INTERNO
-const usuarioUm = {
+const usuarioDb = {
     email:"email@email.com",
     senha:"12345",
     nome: "José Antonio",
@@ -22,24 +22,39 @@ botaoEntrar.addEventListener("click", function(e){
     //Capturar os campos de email e senha.
     //Armazenar em variáveis.
     //Imprimir seus valores.
-    const inputEmail = document.querySelector("#idEmail");
-    const inputSenha = document.querySelector("#idSenha");
+    const email = document.querySelector("#idEmail");
+    const senha = document.querySelector("#idSenha");
     
     //Armazenar os dados que chegam do form em um objeto:
     const userForm = {
-        email: inputEmail.value,
-        senha: inputSenha.value
+        email: email.value,
+        senha: senha.value
     }
 
     //Validação
     try {
 
-        if (usuarioUm) {
+        if (usuarioDb) {
 
-            if( (usuarioUm.email === userForm.email) && (usuarioUm.senha === userForm.senha)){
-                alert("Login realizado com sucesso!");
+            if( (usuarioDb.email === userForm.email) && (usuarioDb.senha === userForm.senha)){
+                //Capturar o dialog
+                const modalDialog = document.querySelector("#meuModal");
+
+                //Abrindo o dialog e deixando o fundo livre.
+                // modalDialog.show();
+
+                //Abrindo o dialog e travando o fundo.
+                modalDialog.showModal();
+                
+                //Capturando o botão do modal para atrelar nele o evento de clique e assim colocar neste botão a ação de fechar o modal
+
+                const botaoModal = document.querySelector("#btnFechar");
+                botaoModal.addEventListener("click", function(){
+                    modalDialog.close();
+                });
+
                 //Redirecionamento do usuário para uma nova página!!
-                window.location.href = "../index.html";
+                //window.location.href = "../index.html";
             }else{
                 throw Error("Email ou Senha incorretos.");
             }
