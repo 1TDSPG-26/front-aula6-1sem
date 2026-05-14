@@ -10,7 +10,6 @@ const usuarioDb = {
 
 //Capturando o botão de entrar
 const botaoEntrar = document.getElementById("btnEntrar");
-console.log(botaoEntrar);
 
 //Atrelando ao botão uma função que vai receber dois parâmetros.
 // O primeiro será o evento de tela, o segundo será a função de callBack ou função anônima.
@@ -38,10 +37,24 @@ botaoEntrar.addEventListener("click", function(e){
         if (usuarioDb) {
 
             if( (usuarioDb.email === userForm.email) && (usuarioDb.senha === userForm.senha)){
-                alert("Login realizado com sucesso!");
-                //Redirecionamento do usuário para uma nova página!!
-                window.location.href= "../index.html";
+                //Capturar o dialog
+                const modalDialog = document.querySelector("#meuModal");
+
+                //Abrindo o dialog e deixando o fundo livre.
+                // modalDialog.show();
+
+                //Abrindo o dialog e travando o fundo.
+                modalDialog.showModal();
+
+                //Capturar o botão do modal para atrelar nele o evento de click e assim colocar  neste botão a ação de fechar o modal.
+                const botaoModal = document.querySelector("#btnFechar");
+                botaoModal.addEventListener("click", function(){
+                    modalDialog.close();
+                });
                 
+
+                //Redirecionamento do usuário para uma nova página!!
+                //window.location.href = "../index.html";
             }else{
                 throw Error("Email ou Senha incorretos.");
             }
