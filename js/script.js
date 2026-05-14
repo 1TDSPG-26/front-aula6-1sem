@@ -1,61 +1,58 @@
-// // alert("olá mundo!");
-// // var nome = prompt("Olá digite seu nome");
 
-// // alert("Meu nome é " + nome);
-// // console.log("Meu nome é " + nome);
-
-// // HOISTING
-// // var nome = "Alê";
-// // let sobreNome = "Carlos";
-
-// // if(true){
-
-// //     var nome = "Joaquim";
-// //     let sobreNome = "Das Couves";
-
-// // }
-
-// // console.log(nome);
-// // console.log(sobreNome);
-
-
-
-// //Declarando variáveis em JS com let
-
-// let nome   = "José";
-// let idade  = 33;
-// let status = false;
-
-// //Imprimir os dados do nosso usuário JOSÉ com console.log usando concatenação simples:
-// console.log(nome + " de " + idade +" anos está " + (status === true ? "empregado" : "desempregado") + " atualmente.");
-
-// //Exercício: agora escreva a mesma frase com template-literal, onde o texto e as variáveis ficam dentro de ` ` e as variáveis são apresentadas entre os símbolos de ${variável}.
-// console.log( `${nome} de ${idade} anos está ${(status === true ? "empregado" : "desempregado")} atualmente.` );
-// //Declarando variáveis em JS com let
-
-// let nome = "José";
-// let idade = 33;
-// let status = false;
-
-// //Imprimindo os dados do noss usário José com console.log usando concatenação simples>
-
-// console.log(nome + " tem " + idade + " anos. Está " +(status === true ? "empregado " : "desempregado " + "atualmente."))
-
-// console.log(`${nome} tem ${idade} está ${status === true ? "empregado" : "desempregado"} atualmente. Template-literal`)
-// ;
-
+//Objeto INTERNO
+const usuarioDb = {
+    email:"email@email.com",
+    senha:"12345",
+    nome: "José Antonio",
+    avatar: "https://placehold.co/100x100/e6e6e6/444444.png?text=usu%C3%A1rio&font=roboto"
+}
 
 
 //Capturando o botão de entrar
 const botaoEntrar = document.getElementById("btnEntrar");
+console.log(botaoEntrar);
 
 //Atrelando ao botão uma função que vai receber dois parâmetros.
-//O primeiro será o evento da tela e o segundo será a função de callBack ou função anônima.
-botaoEntrar.addEventListener("click", function(){
-    console.log("O botão de entrar está clicado.")
-});
+// O primeiro será o evento de tela, o segundo será a função de callBack ou função anônima.
 
-//Para casa:
-//Capturar os campos de email e senha.
-//Armazenar em variáveis.
-//Imprimir seus valores.
+botaoEntrar.addEventListener("click", function(e){
+    
+    e.preventDefault();
+
+    //Para casa:
+    //Capturar os campos de email e senha.
+    //Armazenar em variáveis.
+    //Imprimir seus valores.
+    const email = document.querySelector("#idEmail");
+    const senha = document.querySelector("#idSenha");
+    
+    //Armazenar os dados que chegam do form em um objeto:
+    const userForm = {
+        email: email.value,
+        senha: senha.value
+    }
+
+    //Validação
+    try {
+
+        if (usuarioDb) {
+
+            if( (usuarioDb.email === userForm.email) && (usuarioDb.senha === userForm.senha)){
+                alert("Login realizado com sucesso!");
+            }else{
+                throw Error("Email ou Senha incorretos.");
+            }
+            
+        }else{
+            throw Error("Ocorreu um erro no acesso as informações do usuário.");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert(error);
+    }
+
+
+    
+
+});
