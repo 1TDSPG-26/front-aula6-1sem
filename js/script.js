@@ -11,10 +11,15 @@ botaoEntrar.addEventListener("click", function(){
     console.log("Botão de entrar clicado");
 
 
-    //Para casa:
-    //Capturar os campos de email e senha.
-    //Armazenar em variáveis.
-    //Imprimir seus valores.
+    const senha = document.getElementById("senha").value;
+    const email = document.getElementById("email").value;
+    localStorage.setItem("email", email);
+    localStorage.setItem("senha", senha);
+    console.log(localStorage.getItem("email"));
+    console.log(localStorage.getItem("senha"))
+    
+
+
 
 
 
